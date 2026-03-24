@@ -3,18 +3,14 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   Check,
-  Coins,
   Copy,
   ExternalLink,
-  Flame,
   Rocket,
-  ShieldCheck,
   Wallet,
-  Zap,
 } from "lucide-react";
 import { AnimatePresence, motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { SiOpensea, SiTelegram, SiX } from "react-icons/si";
+import { SiOpensea, SiX } from "react-icons/si";
 
 function FadeIn({
   children,
@@ -47,29 +43,13 @@ const OPENSEA1 =
 const OPENSEA2 =
   "/assets/uploads/screenshot_24-3-2026_75121_opensea.io-019d1dac-65fc-7168-bb5f-8910358bb2c7-3.jpeg";
 
+const OPENSEA_URL = "https://opensea.io/collection/dareman-nfts";
+
 const NAV_LINKS = [
   { id: "about", label: "About" },
-  { id: "tokenomics", label: "Tokenomics" },
   { id: "buy", label: "How to Buy" },
   { id: "community", label: "Community" },
 ] as const;
-
-const TOKENOMICS = [
-  {
-    label: "Total Supply",
-    value: "1,000,000,000",
-    icon: Coins,
-    color: "text-primary",
-  },
-  { label: "Tax", value: "0%", icon: ShieldCheck, color: "text-accent" },
-  {
-    label: "LP",
-    value: "Burned \uD83D\uDD25",
-    icon: Flame,
-    color: "text-primary",
-  },
-  { label: "Mint", value: "Revoked", icon: Zap, color: "text-accent" },
-];
 
 const STEPS = [
   {
@@ -452,42 +432,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── Tokenomics ── */}
-        <section id="tokenomics" className="py-24 px-4">
-          <div className="max-w-5xl mx-auto">
-            <FadeIn className="text-center mb-12">
-              <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">
-                Tokenomics
-              </Badge>
-              <h2 className="font-display font-extrabold text-4xl md:text-5xl text-gradient-lime">
-                Simple. Clean. Fair.
-              </h2>
-            </FadeIn>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {TOKENOMICS.map((t) => {
-                const Icon = t.icon;
-                return (
-                  <FadeIn key={t.label} delay={TOKENOMICS.indexOf(t) * 0.1}>
-                    <div className="bg-card/60 border border-border/50 rounded-2xl p-6 text-center hover:border-accent/40 transition-all group">
-                      <Icon
-                        className={`mx-auto mb-3 h-8 w-8 ${t.color} group-hover:scale-110 transition-transform`}
-                      />
-                      <div
-                        className={`font-display font-extrabold text-2xl md:text-3xl ${t.color} mb-1`}
-                      >
-                        {t.value}
-                      </div>
-                      <div className="text-muted-foreground text-sm font-medium">
-                        {t.label}
-                      </div>
-                    </div>
-                  </FadeIn>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
         {/* ── How to Buy ── */}
         <section id="buy" className="py-24 px-4 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background pointer-events-none" />
@@ -577,7 +521,7 @@ export default function App() {
             </div>
             <FadeIn delay={0.4} className="text-center mt-8">
               <a
-                href="https://opensea.io/collection/daremannfts"
+                href={OPENSEA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
@@ -621,25 +565,6 @@ export default function App() {
                     Follow on X (Twitter)
                   </a>
                 </Button>
-                <Button
-                  size="lg"
-                  style={{
-                    backgroundColor: "oklch(0.55 0.15 230)",
-                    color: "white",
-                  }}
-                  className="hover:opacity-90 font-semibold h-14 px-8 w-full sm:w-auto"
-                  asChild
-                  data-ocid="community.secondary_button"
-                >
-                  <a
-                    href="https://t.me"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <SiTelegram className="mr-3 h-5 w-5" />
-                    Join Telegram
-                  </a>
-                </Button>
               </div>
             </FadeIn>
           </div>
@@ -673,16 +598,7 @@ export default function App() {
                 <SiX className="h-4 w-4" />
               </a>
               <a
-                href="https://t.me"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                data-ocid="footer.link"
-              >
-                <SiTelegram className="h-4 w-4" />
-              </a>
-              <a
-                href="https://opensea.io/collection/daremannfts"
+                href={OPENSEA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
