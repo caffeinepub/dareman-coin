@@ -557,7 +557,7 @@ export default function App() {
                   data-ocid="community.primary_button"
                 >
                   <a
-                    href="https://x.com"
+                    href="https://x.com/daremannfts"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -589,7 +589,7 @@ export default function App() {
             </div>
             <div className="flex items-center gap-4">
               <a
-                href="https://x.com"
+                href="https://x.com/daremannfts"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
