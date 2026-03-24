@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 0.14 0.02 280;
+    --foreground: 0.97 0.01 90;
+    --card: 0.18 0.03 280;
+    --card-foreground: 0.97 0.01 90;
+    --popover: 0.18 0.03 280;
+    --popover-foreground: 0.97 0.01 90;
+    --primary: 0.72 0.19 52;
+    --primary-foreground: 0.1 0.02 280;
+    --secondary: 0.25 0.04 280;
+    --secondary-foreground: 0.97 0.01 90;
+    --muted: 0.22 0.03 280;
+    --muted-foreground: 0.65 0.04 280;
+    --accent: 0.82 0.22 128;
+    --accent-foreground: 0.1 0.02 280;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.28 0.04 280;
+    --input: 0.25 0.04 280;
+    --ring: 0.72 0.19 52;
+    --chart-1: 0.72 0.19 52;
+    --chart-2: 0.82 0.22 128;
+    --chart-3: 0.65 0.18 30;
+    --chart-4: 0.55 0.18 290;
+    --chart-5: 0.75 0.15 80;
+    --sidebar: 0.16 0.02 280;
+    --sidebar-foreground: 0.97 0.01 90;
+    --sidebar-primary: 0.72 0.19 52;
+    --sidebar-primary-foreground: 0.1 0.02 280;
+    --sidebar-accent: 0.22 0.03 280;
+    --sidebar-accent-foreground: 0.97 0.01 90;
+    --sidebar-border: 0.28 0.04 280;
+    --sidebar-ring: 0.72 0.19 52;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Figtree", system-ui, sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-orange {
+    background: linear-gradient(
+      135deg,
+      oklch(0.82 0.22 52),
+      oklch(0.72 0.19 52),
+      oklch(0.65 0.2 30)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-lime {
+    background: linear-gradient(
+      135deg,
+      oklch(0.88 0.25 128),
+      oklch(0.78 0.22 128)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glow-orange {
+    box-shadow: 0 0 40px oklch(0.72 0.19 52 / 0.3), 0 0 80px
+      oklch(0.72 0.19 52 / 0.15);
+  }
+  .glow-lime {
+    box-shadow: 0 0 30px oklch(0.82 0.22 128 / 0.4);
+  }
+  .bg-grid {
+    background-image: linear-gradient(
+        oklch(0.28 0.04 280 / 0.6) 1px,
+        transparent 1px
+      ), linear-gradient(90deg, oklch(0.28 0.04 280 / 0.6) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
